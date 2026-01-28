@@ -474,5 +474,22 @@
     "is_deleted": false,
     "createdAt": "2016-07-14T10:04:29.000Z",
     "updatedAt": "2023-06-09T08:30:04.000Z"
+  },
+  {
+    "id": 22,
+    "name": "OPay",
+    "shortname": "OPay",
+    "slug": "opay",
+    "code": "999992",
+    "longcode": "999992",
+    "gateway": null,
+    "pay_with_bank": false,
+    "active": true,
+    "country": "Nigeria",
+    "currency": "NGN",
+    "type": "nuban",
+    "is_deleted": false,
+    "createdAt": "2020-11-24T10:05:00.000Z",
+    "updatedAt": "2020-11-24T10:05:00.000Z"
   }
 ]
