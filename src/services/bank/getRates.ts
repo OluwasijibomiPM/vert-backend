@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import { exchangeSDKNoAuth } from "./setup.bank";
+import { ratesApi } from "./setup.bank";
 
 export type Rates = {
   data: {
@@ -13,16 +13,16 @@ export type Rates = {
 }
 
 async function getRates(){
-  let rates: {[key:string]: {rate: number, key: string}};
+  let rates: {[key:string]: number};
 
   try{
     const data = (
-      await exchangeSDKNoAuth.getCurrentRates()
+      await ratesApi.get("/?currency=NGN&assets=USDT")
     ).data.data;
 
     rates = {
-      BUSDNGN: data["BUSDNGN"],
-      BUSDUSD: data["BUSDUSD"]
+      USDTNGN: data.USDT.NGN,
+      USDTUSD: 1
     };
   }catch(err){
     console.log(`rateFetch_Failed: ${err.message}`);

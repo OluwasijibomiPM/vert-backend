@@ -24,6 +24,13 @@ const exchangeProductionApi = axios.create({
   }
 });
 
+const ratesApi = axios.create({
+  baseURL: 'https://api.blockradar.co/v1/assets/rates',
+  headers: {
+    "x-api-key": process.env.BLOCKRADAR_API_KEY
+  }
+});
+
 const getExchangeApi = (network: SupportedClient) => {
   const apis = {
     [SupportedClient.LOCALHOST] : exchangeStagingApi,
@@ -35,7 +42,8 @@ const getExchangeApi = (network: SupportedClient) => {
 
 export {
   exchangeSDKNoAuth,
-  getExchangeApi
+  getExchangeApi,
+  ratesApi
 }
 
 export type BankAccount = {

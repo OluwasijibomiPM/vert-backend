@@ -37,7 +37,7 @@ async function sendNaira(params: SendNairaParams){
     rate = rates.data.rates.BUSDNGN.rate
   }else {
     try{
-      rate = (await getRates()).data.rates.BUSDNGN.rate;
+      rate = (await getRates()).data.rates.USDTNGN;
     }catch(err){
       console.log("sendNaira__Failed: failed to fetch rates: ", err.message);
       socket.emit(TransactionEvents.EXCHANGE_STATUS, EXCHANGETXSTATUS.FAILED);

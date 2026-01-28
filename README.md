@@ -77,3 +77,4 @@ At each stage of processing the transaction, the transaction Websocket connectio
 3. Make sure you have yarn installed and then install all the dependencies with `npm install`.
 4. Create a `.env` file and use the `.env.example` file in this repository to fill the .env file with the environment variables. The `.env.example` has comments to explain each environment variable.
 5. Startup the server with `npm run start`.
+6. For auto-reload on code changes during development, use `npm run dev` (nodemon).
