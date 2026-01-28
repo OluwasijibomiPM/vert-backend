@@ -34,10 +34,10 @@ async function sendNaira(params: SendNairaParams){
   rateCorrect = rateCorrect && rates.data.time + 60*60*1000 >= new Date().getTime()
   let rate: number;
   if(rateCorrect){
-    rate = rates.data.rates.BUSDNGN.rate
+    rate = rates.data.rates.USDTNGN;
   }else {
     try{
-      rate = (await getRates()).data.rates.BUSDNGN.rate;
+      rate = (await getRates()).data.rates.USDTNGN;
     }catch(err){
       console.log("sendNaira__Failed: failed to fetch rates: ", err.message);
       socket.emit(TransactionEvents.EXCHANGE_STATUS, EXCHANGETXSTATUS.FAILED);
@@ -102,6 +102,11 @@ async function sendNaira(params: SendNairaParams){
       }, 
       2500
     );
+
+    setTimeout(() => {
+      clearInterval(interval);
+      throw new Error("timeout waiting for tx status");
+    }, 120000); // 2 minutes
 
   }catch(err){
     socket.emit(TransactionEvents.EXCHANGE_STATUS, EXCHANGETXSTATUS.FAILED);

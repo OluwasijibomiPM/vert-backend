@@ -28,7 +28,7 @@ function _rateSocket(io: Server){
         }catch(err){console.log("rateSocket_Failure: Interval Fetch failed", err)}
         
         rateSocket.to("rates").emit(RateEvents.RATES, latestRatesData)
-      }, 120000);
+      }, 1800000); // 30 minutes
     } catch(err){
       console.log("rateSocket_Failure:", err.message);
     }
