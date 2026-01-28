@@ -4,8 +4,8 @@ import { ratesApi } from "./setup.bank";
 export type Rates = {
   data: {
     rates: {
-      BUSDNGN: {rate: number, key: string},
-      BUSDUSD: {rate: number, key: string}
+      USDTNGN: number,
+      USDTUSD: number
     },
     time: number
   },
